@@ -1,3 +1,4 @@
+// If you want to add a new building with different loot and encounter %. Add a new variable just like below, and a new buttons to the dialogEditor.
 
 let resultObject = {
     encounterBool: false, encounterSize: 0, ressourceType: 'None', ressourceSize: 0, text: ''
@@ -71,7 +72,6 @@ let dialogEditor = new Dialog({
 
 });
 
-
 function buildingChecking(a) {
     let encRoll = new Roll('1d6');
     encRoll.evaluate();
@@ -98,12 +98,5 @@ function buildingChecking(a) {
         content: resultObject.text
     });
 };
-
-
-
-
-// buildingChecking(maisonDeVille);
-
-
 
 dialogEditor.render(true);
