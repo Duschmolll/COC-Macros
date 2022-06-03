@@ -1,8 +1,9 @@
-// If you want to add a new building with different loot and encounter %. Add a new variable just like below, and a new buttons to the dialogEditor.
-
 let resultObject = {
     encounterBool: false, encounterSize: 0, ressourceType: 'None', ressourceSize: 0, text: ''
 }
+
+// If you want to add a new building with different loot and encounter %. Add a new variable just like below, and a new button to the dialogEditor.
+
 let maisonDeVille = {
     name: 'Maison De Ville', encounterLuck: 1, encounterDice: '1d4', rationLuck: 4, rationDice: '1d6', ammoLuck: 5, ammoDice: '1d4', transportDice: '1d4'
 };
