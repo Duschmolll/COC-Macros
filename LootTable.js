@@ -24,7 +24,7 @@ let hopital = {
 };
 
 let dialogEditor = new Dialog({
-    title: `Building Loot Table`,
+    title: `Table des bâtiments.`,
     content: ``,
     buttons: {
         maisonDeVille: {
@@ -65,7 +65,7 @@ let dialogEditor = new Dialog({
         },
         close: {
             icon: "<i class='fas fa-tick'></i>",
-            label: `Close`
+            label: `Fermer`
         },
     },
     default: "close",
@@ -83,15 +83,15 @@ function buildingChecking(a) {
     let ressRoll = new Roll("1d6");
     ressRoll.evaluate();
 
-    ressRoll.result <= a.rationLuck ? (resultObject.ressourceType = 'Provisions', ressNumRoll = new Roll(a.rationDice), ressNumRoll.evaluate(), resultObject.ressourceSize = ressNumRoll.result)
-        : ressRoll.result <= a.ammoLuck ? (resultObject.ressourceType = 'Munitions', ressNumRoll = new Roll(a.ammoDice), ressNumRoll.evaluate(), resultObject.ressourceSize = ressNumRoll.result)
-            : (resultObject.ressourceType = 'Transports', ressNumRoll = new Roll(a.transportDice), ressNumRoll.evaluate(), resultObject.ressourceSize = ressNumRoll.result);
+    ressRoll.result <= a.rationLuck ? (resultObject.ressourceType = 'Provision', ressNumRoll = new Roll(a.rationDice), ressNumRoll.evaluate(), resultObject.ressourceSize = ressNumRoll.result)
+        : ressRoll.result <= a.ammoLuck ? (resultObject.ressourceType = 'Munition', ressNumRoll = new Roll(a.ammoDice), ressNumRoll.evaluate(), resultObject.ressourceSize = ressNumRoll.result)
+            : (resultObject.ressourceType = 'Transport', ressNumRoll = new Roll(a.transportDice), ressNumRoll.evaluate(), resultObject.ressourceSize = ressNumRoll.result);
 
     resultObject.text = `<h1>${a.name}</h1>`
-    resultObject.text += resultObject.encounterBool == true ? `<h2>Encounter !</h2>
-        <div><i class="fas fa-dice-d20"></i> <strong>${resultObject.encounterSize}</a> formes indistinctes apparaissent !</strong></div>` : '';
+    resultObject.text += resultObject.encounterBool == true ? `<h2>Rencontre !</h2>
+        <div><i class="fas fa-dice-d20"></i>  <strong>${resultObject.encounterSize}</a> forme(s) indistincte(s) apparaiss(ent).</strong></div>` : '';
     resultObject.text += `<h2>Loot</h2>
-    <div><i class="fas fa-dice-d20"></i> <strong>${resultObject.ressourceSize}</strong> point(s) de <strong>${resultObject.ressourceType}</strong></div>`;
+    <div><i class="fas fa-dice-d20"></i>  <strong>${resultObject.ressourceSize}</strong> point(s) de <strong>${resultObject.ressourceType}</strong>.</div>`;
 
     ChatMessage.create({
         user: game.user._id,
