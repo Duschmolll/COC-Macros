@@ -89,7 +89,7 @@ function buildingChecking(a) {
 
     resultObject.text = `<h1>${a.name}</h1>`
     resultObject.text += resultObject.encounterBool == true ? `<h2>Encounter !</h2>
-        <div><i class="fas fa-dice-d20"></i> <strong>${resultObject.encounterSize}</a> formes indistinques apparaissent !</strong></div>` : '';
+        <div><i class="fas fa-dice-d20"></i> <strong>${resultObject.encounterSize}</a> formes indistinctes apparaissent !</strong></div>` : '';
     resultObject.text += `<h2>Loot</h2>
     <div><i class="fas fa-dice-d20"></i> <strong>${resultObject.ressourceSize}</strong> point(s) de <strong>${resultObject.ressourceType}</strong></div>`;
 
