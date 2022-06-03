@@ -4,22 +4,22 @@ let resultObject = {
     encounterBool: false, encounterSize: 0, ressourceType: 'None', ressourceSize: 0, text: ''
 }
 let maisonDeVille = {
-    name: 'Maison De Ville', encounterDice: '1d4', rationLuck: 4, rationDice: '1d6', ammoLuck: 5, ammoDice: '1d4', transportDice: '1d4'
+    name: 'Maison De Ville', encounterLuck: 1, encounterDice: '1d4', rationLuck: 4, rationDice: '1d6', ammoLuck: 5, ammoDice: '1d4', transportDice: '1d4'
 };
 let maisonEnCampagne = {
-    name: 'Maison en Campagne', encounterDice: '1d4', rationLuck: 3, rationDice: '1d8', ammoLuck: 4, ammoDice: '1d4', transportDice: '1d6'
+    name: 'Maison en Campagne', encounterLuck: 1, encounterDice: '1d4', rationLuck: 3, rationDice: '1d8', ammoLuck: 4, ammoDice: '1d4', transportDice: '1d6'
 };
 let entrepot = {
-    name: 'Entrepôt / Industrie', encounterDice: '1d6', rationLuck: 1, rationDice: '1d4', ammoLuck: 2, ammoDice: '1d4', transportDice: '1d12'
+    name: 'Entrepôt / Industrie', encounterLuck: 2, encounterDice: '1d6', rationLuck: 1, rationDice: '1d4', ammoLuck: 2, ammoDice: '1d4', transportDice: '1d12'
 };
 let garage = {
-    name: 'Garage / Station', encounterDice: '1d6', rationLuck: 1, rationDice: '1d4', ammoLuck: 2, ammoDice: '1d4', transportDice: '1d20'
+    name: 'Garage / Station', encounterLuck: 2, encounterDice: '1d6', rationLuck: 1, rationDice: '1d4', ammoLuck: 2, ammoDice: '1d4', transportDice: '1d20'
 };
 let commerce = {
-    name: 'Centre Commercial', encounterDice: '1d8', rationLuck: 3, rationDice: '1d12', ammoLuck: 5, ammoDice: '1d8', transportDice: '1d12'
+    name: 'Centre Commercial', encounterLuck: 2, encounterDice: '1d8', rationLuck: 3, rationDice: '1d12', ammoLuck: 5, ammoDice: '1d8', transportDice: '1d12'
 };
 let hopital = {
-    name: 'Hôpital', encounterDice: '1d10', rationLuck: 4, rationDice: '1d10', ammoLuck: 0, ammoDice: '1d4', transportDice: '1d10'
+    name: 'Hôpital', encounterLuck: 2, encounterDice: '1d10', rationLuck: 4, rationDice: '1d10', ammoLuck: 0, ammoDice: '1d4', transportDice: '1d10'
 };
 
 let dialogEditor = new Dialog({
@@ -76,7 +76,7 @@ function buildingChecking(a) {
     let encRoll = new Roll('1d6');
     encRoll.evaluate();
 
-    encRoll.result <= 2 ? (encNumRoll = new Roll(a.encounterDice), encNumRoll.evaluate(), resultObject.encounterBool = true, resultObject.encounterSize = encNumRoll.result)
+    encRoll.result <= a.encounterLuck ? (encNumRoll = new Roll(a.encounterDice), encNumRoll.evaluate(), resultObject.encounterBool = true, resultObject.encounterSize = encNumRoll.result)
         : resultObject.encounterBool = false;
 
     let ressRoll = new Roll("1d6");
