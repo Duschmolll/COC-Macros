@@ -3,4 +3,4 @@ House_Loot.js
 .vscode/settings.json
 Light_Vision_COC.js
 Light_Vision_COC.js
- .gitignore
+*.gitignore
